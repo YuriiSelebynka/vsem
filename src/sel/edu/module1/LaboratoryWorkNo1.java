@@ -24,9 +24,9 @@ Topic: Introduction to the Java programming language, variables, data types,
  operators. Logical operators, branch operators, bit-wise operators,loops,
  strings, arrays, methods.
 
-1. Find the longest word in the above text. +
-2. Count the LINES where the word "Harry" is met. +
-3. Take the array of distinct words from Harry Potter. +
+1. Find the longest word in the above text.
+2. Count the LINES where the word "Harry" is met.
+3. Take the array of distinct words from Harry Potter.
 4. How many distinct words begin from the letter "C".
 5. Create an array of hashes.
 6. Count the intersections of hashes.*/
@@ -34,14 +34,11 @@ Topic: Introduction to the Java programming language, variables, data types,
 public class LaboratoryWorkNo1 {
     private static String result;
 
-    //private static Object result;
-
 
     public static void main (String[] args) throws IOException {
 
         String text = new String(Files.readAllBytes(Paths
                 .get("C:\\Users\\Yurii\\Desktop\\harry.txt")));
-        text = text.replaceAll("[^A-Za-z `]", "");
 
         // 2. Count the LINES where the word "Harry" is met. \\
 
@@ -53,12 +50,12 @@ public class LaboratoryWorkNo1 {
             if (lines[i].contains("Harry")){
                 counter++;
             }
-            System.out.println("Total quantity of the LINES where the word"+
-                    " Harry is met is " + counter);
 
         }
 
 //***************************************************************************\\
+
+        text = text.replaceAll("[^A-Za-z `]", "");
 
         String[] words = text.split(" +");
 
@@ -100,7 +97,6 @@ public class LaboratoryWorkNo1 {
             if (distincts[i].startsWith("C")) {
                 counter2++;
             }
-            System.out.println(counter2);
         }
 
 //***************************************************************************\\
@@ -128,6 +124,12 @@ public class LaboratoryWorkNo1 {
 
 //***************************************************************************\\
 
+        // Results \\
+
+        System.out.println("Total quantity of the LINES where the word"+
+                " Harry is met is " + counter);
+        System.out.println("Total quantity of the distinct words begin from " +
+                "the letter \"C\" " + counter2);
         System.out.println("\n" + "******  Thank You for attention:)  ******");
     }
 }
