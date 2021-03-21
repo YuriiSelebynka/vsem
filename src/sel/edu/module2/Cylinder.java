@@ -1,5 +1,7 @@
 package sel.edu.module2;
 
+import java.util.Objects;
+
 /**
  * @author Yurii Selebynka
  * @project vsem
@@ -99,14 +101,18 @@ public class Cylinder {
     /* 5. Override hash() and equals() methods. */
 
     @Override
-    public int hashCode() {
-        return super.hashCode();
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Cylinder cylinder = (Cylinder) o;
+        return Double.compare(cylinder.h, h) == 0 &&
+                Double.compare(cylinder.r, r) == 0;
     }
 
     @Override
-    public boolean equals(Object obj) {
-        return super.equals(obj);
+    public int hashCode() {
+        return Objects.hash(h, r);
     }
 
-//*************************THANK YOU FOR ATTENTION!**************************\\
+    //*************************THANK YOU FOR ATTENTION!**************************\\
 }
