@@ -12,16 +12,17 @@ import java.util.Objects;
 
 /* Inheritance
 1. Create a child from the class Rectangle.
-2. Create a class Person and a class Student as  its daughter.  25 fields. */
+2. Create a class Person and a class Student as its daughter. 25 fields. */
+
+    /*  1. Create a child from the class Rectangle. */
 
 public class Window extends Rectangle {
-
     String nameOfModel;
     String materialOfFrame;
     String typeOfGlass;
     String colorOfFrame;
     String purpose;
-    int numberOfSections;
+    int    numberOfSections;
 
     public Window (int length, int width, String nameOfModel,
                    String materialOfFrame, String typeOfGlass,
@@ -35,6 +36,8 @@ public class Window extends Rectangle {
         this.purpose = purpose;
         this.numberOfSections = numberOfSections;
     }
+
+    /* ======================= Getters and setters. ======================== */
 
     public String getNameOfModel() {
         return nameOfModel;
@@ -84,17 +87,44 @@ public class Window extends Rectangle {
         this.numberOfSections = numberOfSections;
     }
 
+    /* ========================== Equals method. =========================== */
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
         Window window = (Window) o;
-        return numberOfSections == window.numberOfSections && Objects.equals(nameOfModel, window.nameOfModel) && Objects.equals(materialOfFrame, window.materialOfFrame) && Objects.equals(typeOfGlass, window.typeOfGlass) && Objects.equals(colorOfFrame, window.colorOfFrame) && Objects.equals(purpose, window.purpose);
+        return numberOfSections == window.numberOfSections &&
+                Objects.equals(nameOfModel, window.nameOfModel) &&
+                Objects.equals(materialOfFrame, window.materialOfFrame) &&
+                Objects.equals(typeOfGlass, window.typeOfGlass) &&
+                Objects.equals(colorOfFrame, window.colorOfFrame) &&
+                Objects.equals(purpose, window.purpose);
     }
+
+    /* ============================ Hash method. =========================== */
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), nameOfModel, materialOfFrame, typeOfGlass, colorOfFrame, purpose, numberOfSections);
+        return Objects.hash(super.hashCode(), nameOfModel, materialOfFrame,
+                            typeOfGlass, colorOfFrame, purpose,
+                            numberOfSections);
+    }
+
+    /* ========================= ToString method. ========================== */
+
+    @Override
+    public String toString() {
+        return "Window{" +
+                "nameOfModel='" + nameOfModel + '\'' +
+                ", materialOfFrame='" + materialOfFrame + '\'' +
+                ", typeOfGlass='" + typeOfGlass + '\'' +
+                ", colorOfFrame='" + colorOfFrame + '\'' +
+                ", purpose='" + purpose + '\'' +
+                ", numberOfSections=" + numberOfSections +
+                '}';
     }
 }
+
+//*************************THANK YOU FOR ATTENTION!**************************\\
