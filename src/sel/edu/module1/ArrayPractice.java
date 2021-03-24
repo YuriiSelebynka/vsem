@@ -23,7 +23,7 @@ import java.util.Arrays;
 5. Order the words in alphabetic order. */
 
 public class ArrayPractice {
-    public static void main(String[] args) throws IOException {
+    /*public static void main(String[] args) throws IOException {
 
           // 1. Find in the net and download a text version of a novel \\
          // about Harry Potter. For instance, "Harry Potter and the     \\
@@ -31,7 +31,7 @@ public class ArrayPractice {
 
         // download a text to string
         String text = new String(Files.readAllBytes(Paths
-                .get("C:\\Users\\Yurii\\Desktop\\harry.txt")));
+                .get("home\\yurii\\Стільниця\\harry.txt")));
 
 //***************************************************************************\\
 
@@ -79,5 +79,5 @@ public class ArrayPractice {
         System.out.println("total number of distincts words is " +
                 distincts.length + ".");
         System.out.println("\n" + "******  Thank You for attention:)  ******");
-    }
+    }*/
 }

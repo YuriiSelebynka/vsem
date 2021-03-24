@@ -1,8 +1,10 @@
-package sel.edu.module2;
+package sel.edu.module2.design;
+
+import sel.edu.module2.polymorphism.interfaces.IGeometry;
 
 import java.util.Objects;
 
-public class Rectangle {
+public class Rectangle implements IGeometry {
     private int length;
     private int width;
 
@@ -52,7 +54,13 @@ public class Rectangle {
                 ", width = " + width +
                 '}';
     }
-    public int getArea(){
+
+    @Override
+    public double getPerimeter() {
+        return 0;
+    }
+
+    public double getArea(){
         return this.getWidth() * this.getLength();
     }
 

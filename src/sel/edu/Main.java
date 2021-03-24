@@ -1,5 +1,20 @@
 package sel.edu;
 
+//import sel.edu.module2.design.Person0;
+
+import sel.edu.module2.Factory.*;
+import sel.edu.module2.design.Cube;
+import sel.edu.module2.design.MaritalStatus;
+import sel.edu.module2.design.Person0;
+import sel.edu.module2.design.Triangle;
+import sel.edu.module2.polymorphism.Rectangle2;
+import sel.edu.module2.polymorphism.interfaces.IGeometry;
+
+import java.time.LocalDate;
+import java.time.Month;
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -10,7 +25,7 @@ public class Main {
         // Ist way. \\
 
 
-        String[] sentences = new String[5];
+        /*String[] sentences = new String[5];
         sentences[0] = "Rats live on no evil star.";
         sentences[1] = "А кобыле цена дана, да не целы бока.";
         sentences[2] = "This sentence is not palindrome.";
@@ -75,7 +90,34 @@ public class Main {
         System.out.println("Results for IIIrd task of Cycle practice:");
         System.out.println("The area limited by the functions x = 0 .. 3.14;" +
                 " y = sin(x); y = 0.1 * k is " + area);
-        System.out.println("\n" + "******  Thank You for attention:)  ******");
+        System.out.println("\n" + "******  Thank You for attention:)  ******");*/
+
+        Person0 johnLennon = new Person0 ("John", "Hippie", "Lennon",
+                LocalDate.of(1955, Month.MARCH, 12), MaritalStatus.MARRIED);
+
+        System.out.println(johnLennon.getAge());
+        System.out.println(johnLennon.toString());
+        Rectangle2 rec2 = new Rectangle2(3,4);
+        rec2.toJSON();
+        rec2.toXML();
+
+        Rectangle3 r22 = new Rectangle3(3,4);
+        System.out.println(r22.getArea());
+        System.out.println(Rectangle3.getArea(7, 8)); // не створюючи об`єкт класу
+        Rectangle3 r33 = RectangleFactory.create(3,4);
+
+        Triangle t34 = TriangleFactory.create(1,1,10);
+        System.out.println(t34);
+
+        double PI = Math.PI;
+        double x = Math.sqrt(2);
+
+        IGeometry cube = FigureFactory.create(3, Figures.CUBE);
+        // OR IGeometry cube = (Cube) FigureFactory.create(3, Figures.CUBE);
+
+        List<IGeometry> list = new ArrayList<>();
+        list.add(cube);
+
     }
 }
 

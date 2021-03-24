@@ -1,4 +1,4 @@
-package sel.edu.module2;
+package sel.edu.module2.design;
 
 import java.time.LocalDate;
 import java.util.Objects;
