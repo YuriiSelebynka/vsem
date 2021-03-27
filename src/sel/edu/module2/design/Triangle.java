@@ -1,8 +1,8 @@
 package sel.edu.module2.design;
 
-import sel.edu.module2.polymorphism.interfaces.IGeometry;
+import sel.edu.module2.polymorphism.interfaces.IGeometry1;
 
-public class Triangle implements IGeometry {
+public class Triangle implements IGeometry1 {
     private double sideA;
     private double sideB;
     private double sideC;

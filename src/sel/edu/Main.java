@@ -3,13 +3,15 @@ package sel.edu;
 //import sel.edu.module2.design.Person0;
 
 import sel.edu.module2.Factory.*;
-import sel.edu.module2.design.Cube;
 import sel.edu.module2.design.MaritalStatus;
 import sel.edu.module2.design.Person0;
 import sel.edu.module2.design.Triangle;
+import sel.edu.module2.design.factories.AbstractFactory;
+import sel.edu.module2.design.factories.AbstractFigures;
+import sel.edu.module2.design.interfacesForClasses.IGeometry;
 import sel.edu.module2.model.Student2;
 import sel.edu.module2.polymorphism.Rectangle2;
-import sel.edu.module2.polymorphism.interfaces.IGeometry;
+import sel.edu.module2.polymorphism.interfaces.IGeometry1;
 
 import java.time.LocalDate;
 import java.time.Month;
@@ -113,10 +115,10 @@ public class Main {
         double PI = Math.PI;
         double x = Math.sqrt(2);
 
-        IGeometry cube = FigureFactory.create(3, Figures.CUBE);
+        IGeometry1 cube = FigureFactory.create(3, Figures.CUBE);
         // OR IGeometry cube = (Cube) FigureFactory.create(3, Figures.CUBE);
 
-        List<IGeometry> list = new ArrayList<>();
+        List<IGeometry1> list = new ArrayList<>();
         list.add(cube);
 
         Student2 student = new Student2("Ivan", "Ivahovych", "Ivanko",
@@ -144,6 +146,11 @@ public class Main {
         System.out.println(st3);
         System.out.println(st4);
 
+/*****************************************************************************/
+
+/* Checking an abstract factory. */
+        IGeometry cone = AbstractFactory.create(4,4,AbstractFigures.CONE);
+        System.out.println(cone);
 
 
     }

@@ -1,11 +1,11 @@
 package sel.edu.module2.polymorphism;
 
-import sel.edu.module2.polymorphism.interfaces.IGeometry;
+import sel.edu.module2.polymorphism.interfaces.IGeometry1;
 import sel.edu.module2.polymorphism.interfaces.IPacking;
 
 import java.util.Objects;
 
-public class Rectangle2 implements IGeometry, IPacking {
+public class Rectangle2 implements IGeometry1, IPacking {
     private int length;
     private int width;
 

@@ -1,10 +1,10 @@
 package sel.edu.module2.design;
 
-import sel.edu.module2.polymorphism.interfaces.IGeometry;
+import sel.edu.module2.polymorphism.interfaces.IGeometry1;
 
 import java.util.Objects;
 
-public class Rectangle implements IGeometry {
+public class Rectangle implements IGeometry1 {
     private int length;
     private int width;
 

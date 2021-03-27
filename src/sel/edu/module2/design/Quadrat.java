@@ -1,8 +1,8 @@
 package sel.edu.module2.design;
 
-import sel.edu.module2.polymorphism.interfaces.IGeometry;
+import sel.edu.module2.polymorphism.interfaces.IGeometry1;
 
-public class Quadrat implements IGeometry {
+public class Quadrat implements IGeometry1 {
     private int side;
 
     public Quadrat() {

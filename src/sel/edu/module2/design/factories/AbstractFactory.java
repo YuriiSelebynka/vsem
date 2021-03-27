@@ -32,31 +32,35 @@ public class AbstractFactory {
         return new Cylinder(h, r);
     }
 
-    public static IGeometry create(double h, double lowR, double highR,
-                                   double outerR, double innerR) {
+    public static IGeometry create(double h, double lowR, double highR) {
         if (lowR == highR) {
             return new Cylinder(h, lowR);
         }
         else if (highR == 0) {
             return new Cone(h, lowR);
         }
-        else if (outerR > innerR) {
-            return new Pipe(h, innerR, outerR);
-        }
+
         return new TruncatedCone(h, lowR, highR);
     }
 
-    public static IGeometry create(double h, double lowR, double highR,
-                                   double innerR, double outerR,
+    public static IGeometry create (double h, double r,
+                                    double outerR, double innerR) {
+        if (outerR > innerR) {
+            return new Pipe(h, innerR, outerR);
+        }
+        return new Cylinder(h, r);
+    }
+
+    public static IGeometry create(double h, double r,
                                    AbstractFigures figure) {
         if (figure.equals(AbstractFigures.CIRCLE))
-            return (IGeometry) new Circle(lowR);
+            return (IGeometry) new Circle(r);
         if (figure.equals(AbstractFigures.TRUNCATEDCONE))
-            return new TruncatedCone(h, lowR, highR);
+            return new TruncatedCone(h, r, r);
         if (figure.equals(AbstractFigures.CONE))
-            return new Cone(h,lowR);
+            return new Cone(h,r);
         if (figure.equals(AbstractFigures.PIPE))
-            return new Pipe(h,innerR,outerR);
+            return new Pipe(h,r,r);
         return null;
     }
 

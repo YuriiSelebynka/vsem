@@ -1,8 +1,8 @@
 package sel.edu.module2.Factory;
 
-import sel.edu.module2.polymorphism.interfaces.IGeometry;
+import sel.edu.module2.polymorphism.interfaces.IGeometry1;
 
-public class Rectangle3 implements IGeometry {
+public class Rectangle3 implements IGeometry1 {
     int length;
     int width;
 

@@ -1,8 +1,8 @@
 package sel.edu.module2.design;
 
-import sel.edu.module2.polymorphism.interfaces.IGeometry;
+import sel.edu.module2.polymorphism.interfaces.IGeometry1;
 
-public class Cube implements IGeometry {
+public class Cube implements IGeometry1 {
     private double side;
 
     public Cube(double side) {
