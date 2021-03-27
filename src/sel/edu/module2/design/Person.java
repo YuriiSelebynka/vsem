@@ -32,7 +32,11 @@ public class Person {
         this.patronymic = patronymic;
         this.dateOfBirth = dateOfBirth;
         this.gender = gender;
-        this.citizenship =citizenship;
+        this.citizenship = citizenship;
+    }
+
+    public Person() {
+
     }
 
     /* ======================= Getters and setters. ======================== */

@@ -1,5 +1,7 @@
 package sel.edu.module2.design;
 
+import sel.edu.module2.model.Student2;
+
 import java.time.LocalDate;
 import java.util.Objects;
 
@@ -12,8 +14,19 @@ import java.util.Objects;
  * */
 
 /* Inheritance
+
 1. Create a child  from the class Rectangle.
 2. Create a class Person and a class Student as its daughter. 25 fields. */
+
+
+/* Programming patterns. Factory, Builder.
+
+Develop for your class:
+1. Factory;
+2. Abstract factory;
+3. Create a builder for the class Student;
+4. Create a class MyInteger.
+   Design a method  public static boolean isPrime(int num). */
 
 /* 2. Create a class Person and a class Student as its daughter. 25 fields. */
 
@@ -49,6 +62,62 @@ public class Student extends Person{
     private boolean  isArtActivist;
     private String   specialAwards;
     private String   notes;
+
+    public Student() {
+        //super();
+    }
+
+    public Student(
+                   String identityDocument, String phoneNumber,
+                   String eMailAddress, boolean isAdult, boolean isConscript,
+                   boolean isDepartmentOfMilitaryTraining,
+                   String persuasion, boolean isPrivileged,
+                   String knowledgeOfForeignLanguages, int certificateMark,
+                   int ukrainianLanguageZNOResults,
+                   int englishLanguageZNOResults, int historyZNOResults,
+                   boolean isStateEmployee, boolean isScholar,
+                   int studentTicketNumber, int creditBookNumber,
+                   String speciality, String chair, String educationLevel,
+                   boolean isReTakesTheExams, String titleOfThesis,
+                   String supervisor, String specialCourses,
+                   int numberOfConferences, int numberOfScientificArticles,
+                   boolean participationInLegalClinic,
+                   boolean isSportsActivist, boolean isArtActivist,
+                   String specialAwards, String notes) {
+
+        this.identityDocument = identityDocument;
+        this.phoneNumber = phoneNumber;
+        this.eMailAddress = eMailAddress;
+        this.isAdult = isAdult;
+        this.isConscript = isConscript;
+        this.isDepartmentOfMilitaryTraining = isDepartmentOfMilitaryTraining;
+        this.persuasion = persuasion;
+        this.isPrivileged = isPrivileged;
+        this.knowledgeOfForeignLanguages = knowledgeOfForeignLanguages;
+        this.certificateMark = certificateMark;
+        this.ukrainianLanguageZNOResults = ukrainianLanguageZNOResults;
+        this.englishLanguageZNOResults = englishLanguageZNOResults;
+        this.historyZNOResults = historyZNOResults;
+        this.isStateEmployee = isStateEmployee;
+        this.isScholar = isScholar;
+        this.studentTicketNumber = studentTicketNumber;
+        this.creditBookNumber = creditBookNumber;
+        this.speciality = speciality;
+        this.chair = chair;
+        this.educationLevel = educationLevel;
+        this.isReTakesTheExams = isReTakesTheExams;
+        this.titleOfThesis = titleOfThesis;
+        this.supervisor = supervisor;
+        this.specialCourses = specialCourses;
+        this.numberOfConferences = numberOfConferences;
+        this.numberOfScientificArticles = numberOfScientificArticles;
+        this.participationInLegalClinic = participationInLegalClinic;
+        this.isSportsActivist = isSportsActivist;
+        this.isArtActivist = isArtActivist;
+        this.specialAwards = specialAwards;
+        this.notes = notes;
+    }
+
 
     public Student(String firstName, String lastName, String patronymic,
                    LocalDate dateOfBirth, String gender, String citizenship,
@@ -463,6 +532,274 @@ public class Student extends Person{
                 ", specialAwards='" + specialAwards + '\'' +
                 ", notes='" + notes + '\'' +
                 '}';
+    }
+
+/* Module II. 3. Create a builder for the class Student. */
+
+/*=================== Creating Builder for class Student. ===================*/
+
+    public static class Builder{
+        private Student studentToBuild;
+
+        public Builder() {
+            this.studentToBuild = new Student();
+        }
+
+/*================== Creating method SimilarTo for Builder. =================*/
+
+        public Builder setSimilarTo (Student student) {
+            /*this.studentToBuild.firstName = student.firstName;
+            this.studentToBuild.lastName = student.lastName;
+            this.studentToBuild.patronymic = student.patronymic;
+            this.studentToBuild.dateOfBirth = student.dateOfBirth;
+            this.studentToBuild.gender = student.gender;
+            this.studentToBuild.citizenship = student.citizenship;*/
+
+            this.studentToBuild.identityDocument = student.identityDocument;
+            this.studentToBuild.phoneNumber = student.phoneNumber;
+            this.studentToBuild.eMailAddress = student.eMailAddress;
+            this.studentToBuild.isAdult = student.isAdult;
+            this.studentToBuild.isConscript = student.isConscript;
+            this.studentToBuild.isDepartmentOfMilitaryTraining = student
+                    .isDepartmentOfMilitaryTraining;
+            this.studentToBuild.persuasion = student.persuasion;
+            this.studentToBuild.isPrivileged = student.isPrivileged;
+            this.studentToBuild.knowledgeOfForeignLanguages = student
+                    .knowledgeOfForeignLanguages;
+            this.studentToBuild.certificateMark = student.certificateMark;
+            this.studentToBuild.ukrainianLanguageZNOResults = student
+                    .ukrainianLanguageZNOResults;
+            this.studentToBuild.englishLanguageZNOResults = student
+                    .englishLanguageZNOResults;
+            this.studentToBuild.historyZNOResults = student.historyZNOResults;
+            this.studentToBuild.isStateEmployee = student.isStateEmployee;
+            this.studentToBuild.isScholar = student.isScholar;
+            this.studentToBuild.studentTicketNumber = student
+                    .studentTicketNumber;
+            this.studentToBuild.creditBookNumber = student.creditBookNumber;
+            this.studentToBuild.speciality = student.speciality;
+            this.studentToBuild.chair = student.chair;
+            this.studentToBuild.educationLevel = student.educationLevel;
+            this.studentToBuild.isReTakesTheExams = student.isReTakesTheExams;
+            this.studentToBuild.titleOfThesis = student.titleOfThesis;
+            this.studentToBuild.supervisor = student.supervisor;
+            this.studentToBuild.specialCourses = student.specialCourses;
+            this.studentToBuild.numberOfConferences = student
+                    .numberOfConferences;
+            this.studentToBuild.numberOfScientificArticles = student
+                    .numberOfScientificArticles;
+            this.studentToBuild.participationInLegalClinic = student
+                    .participationInLegalClinic;
+            this.studentToBuild.isSportsActivist = student.isSportsActivist;
+            this.studentToBuild.isArtActivist = student.isArtActivist;
+            this.studentToBuild.specialAwards = student.specialAwards;
+            this.studentToBuild.notes = student.notes;
+            return this;
+        }
+
+/*================ Creating another methods for class Student. ==============*/
+
+        public Builder setFirstName(String firstName){
+            studentToBuild.setFirstName(firstName);
+            return this;
+        }
+
+        public Builder setLastName(String lastName){
+            studentToBuild.setLastName(lastName);
+            return this;
+        }
+
+        public Builder setPatronymic(String patronymic){
+            studentToBuild.setPatronymic(patronymic);
+            return this;
+        }
+
+        public Builder setDateOfBirth(LocalDate dateOfBirth){
+            studentToBuild.setDateOfBirth(dateOfBirth);
+            return this;
+        }
+
+        public Builder setGender(String gender){
+            studentToBuild.setGender(gender);
+            return this;
+        }
+
+        public Builder setCitizenship(String citizenship){
+            studentToBuild.setCitizenship(citizenship);
+            return this;
+        }
+
+        public Builder setIdentityDocument(String identityDocument){
+            studentToBuild.setIdentityDocument(identityDocument);
+            return this;
+        }
+
+        public Builder setPhoneNumber(String phoneNumber){
+            studentToBuild.setPhoneNumber(phoneNumber);
+            return this;
+        }
+
+        public Builder setEMailAddress(String eMailAddress){
+            studentToBuild.seteMailAddress(eMailAddress);
+            return this;
+        }
+
+        public Builder setAdult(boolean isAdult){
+            studentToBuild.setAdult(isAdult);
+            return this;
+        }
+
+        public Builder setConscript(boolean isConscript){
+            studentToBuild.setConscript(isConscript);
+            return this;
+        }
+
+        public Builder setDepartmentOfMilitaryTraining(
+                boolean isDepartmentOfMilitaryTraining){
+            studentToBuild.setDepartmentOfMilitaryTraining(
+                    isDepartmentOfMilitaryTraining);
+            return this;
+        }
+
+        public Builder setPersuasion(String persuasion){
+            studentToBuild.setPersuasion(persuasion);
+            return this;
+        }
+
+        public Builder setPrivileged(boolean isPrivileged){
+            studentToBuild.setPrivileged(isPrivileged);
+            return this;
+        }
+
+        public Builder setKnowledgeOfForeignLanguages(
+                String knowledgeOfForeignLanguages){
+            studentToBuild.setKnowledgeOfForeignLanguages(
+                    knowledgeOfForeignLanguages);
+            return this;
+        }
+
+        public Builder setCertificateMark(int certificateMark){
+            studentToBuild.setCertificateMark(certificateMark);
+            return this;
+        }
+
+        public Builder setUkrainianLanguageZNOResults(
+                int ukrainianLanguageZNOResults){
+            studentToBuild.setUkrainianLanguageZNOResults(
+                    ukrainianLanguageZNOResults);
+            return this;
+        }
+
+        public Builder setEnglishLanguageZNOResults(
+                int englishLanguageZNOResults){
+            studentToBuild.setEnglishLanguageZNOResults(
+                    englishLanguageZNOResults);
+            return this;
+        }
+
+        public Builder setHistoryZNOResults(int historyZNOResults){
+            studentToBuild.setHistoryZNOResults(historyZNOResults);
+            return this;
+        }
+
+        public Builder setStateEmployee(boolean isStateEmployee){
+            studentToBuild.setStateEmployee(isStateEmployee);
+            return this;
+        }
+
+        public Builder setScholar(boolean isScholar){
+            studentToBuild.setScholar(isScholar);
+            return this;
+        }
+
+        public Builder setStudentTicketNumber(int studentTicketNumber){
+            studentToBuild.setStudentTicketNumber(studentTicketNumber);
+            return this;
+        }
+
+        public Builder setCreditBookNumber(int creditBookNumber){
+            studentToBuild.setCreditBookNumber(creditBookNumber);
+            return this;
+        }
+
+        public Builder setSpeciality(String speciality){
+            studentToBuild.setSpeciality(speciality);
+            return this;
+        }
+
+        public Builder setChair(String chair){
+            studentToBuild.setChair(chair);
+            return this;
+        }
+
+        public Builder setEducationLevel(String educationLevel){
+            studentToBuild.setEducationLevel(educationLevel);
+            return this;
+        }
+
+        public Builder setReTakesTheExams(boolean isReTakesTheExams){
+            studentToBuild.setReTakesTheExams(isReTakesTheExams);
+            return this;
+        }
+
+        public Builder setTitleOfThesis(String titleOfThesis){
+            studentToBuild.setTitleOfThesis(titleOfThesis);
+            return this;
+        }
+
+        public Builder setSupervisor(String supervisor){
+            studentToBuild.setSupervisor(supervisor);
+            return this;
+        }
+
+        public Builder setSpecialCourses(String specialCourses){
+            studentToBuild.setSpecialCourses(specialCourses);
+            return this;
+        }
+
+        public Builder setNumberOfConferences(int numberOfConferences){
+            studentToBuild.setNumberOfConferences(numberOfConferences);
+            return this;
+        }
+
+        public Builder setNumberOfScientificArticles(
+                int numberOfScientificArticles){
+            studentToBuild.setNumberOfScientificArticles(
+                    numberOfScientificArticles);
+            return this;
+        }
+
+        public Builder setParticipationInLegalClinic(
+                boolean participationInLegalClinic){
+            studentToBuild.setParticipationInLegalClinic(
+                    participationInLegalClinic);
+            return this;
+        }
+
+        public Builder setSportsActivist(boolean isSportsActivist){
+            studentToBuild.setSportsActivist(isSportsActivist);
+            return this;
+        }
+
+        public Builder setArtActivist(boolean isArtActivist){
+            studentToBuild.setArtActivist(isArtActivist);
+            return this;
+        }
+
+        public Builder setSpecialAwards(String specialAwards){
+            studentToBuild.setSpecialAwards(specialAwards);
+            return this;
+        }
+
+        public Builder setNotes(String notes){
+            studentToBuild.setNotes(notes);
+            return this;
+        }
+
+
+        public Student build() {
+            return studentToBuild;
+        }
     }
 }
 

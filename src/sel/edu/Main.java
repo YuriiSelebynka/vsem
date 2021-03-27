@@ -5,6 +5,7 @@ package sel.edu;
 import sel.edu.module2.Factory.*;
 import sel.edu.module2.design.MaritalStatus;
 import sel.edu.module2.design.Person0;
+import sel.edu.module2.design.Student;
 import sel.edu.module2.design.Triangle;
 import sel.edu.module2.design.factories.AbstractFactory;
 import sel.edu.module2.design.factories.AbstractFigures;
@@ -137,6 +138,7 @@ public class Main {
                 .setSimilarTo(st2)
                 .setFirstName("Igor")
                 .setPhone("12345")
+                .setIdCard("asd")
                 .build();
 
         Student2 st4 = st3;  // similar object to st3 - WRONG WAY
@@ -148,12 +150,57 @@ public class Main {
 
 /*****************************************************************************/
 
-/* Checking an abstract factory. */
+/*====================== Checking an abstract factory. ======================*/
+
         IGeometry cone = AbstractFactory.create(4,4,AbstractFigures.CONE);
         System.out.println(cone);
 
+/*=================== Creating an object with helping Builder. ==============*/
 
+        Student Yurii = new Student.Builder()
+                .setFirstName("Yurii")
+                .setLastName("Selebynka")
+                .setPatronymic("Vasylovych")
+                .setDateOfBirth(LocalDate.of(1996,5,6))
+                .setGender("male")
+                .setCitizenship("Ukrainian")
+                .setIdentityDocument("passport")
+                .setPhoneNumber("12345678")
+                .setEMailAddress("email.in.ua")
+                .setAdult(true)
+                .setConscript(false)
+                .setDepartmentOfMilitaryTraining(false)
+                .setPersuasion("HAMradio")
+                .setPrivileged(false)
+                .setKnowledgeOfForeignLanguages("English, Slovak, France, Russian")
+                .setCertificateMark(12)
+                .setUkrainianLanguageZNOResults(194)
+                .setEnglishLanguageZNOResults(167)
+                .setHistoryZNOResults(196)
+                .setStateEmployee(true)
+                .setScholar(true)
+                .setStudentTicketNumber(666)
+                .setCreditBookNumber(112)
+                .setSpeciality("law")
+                .setChair("civil law")
+                .setEducationLevel("phd")
+                .setReTakesTheExams(true)
+                .setTitleOfThesis("Cargo agreements")
+                .setSupervisor("Shevchento T.T.")
+                .setSpecialCourses("none")
+                .setNumberOfConferences(5)
+                .setNumberOfScientificArticles(0)
+                .setParticipationInLegalClinic(true)
+                .setSportsActivist(false)
+                .setArtActivist(false)
+                .setSpecialAwards("none")
+                .setNotes("none")
+                .build();
+
+/*========================== Checking the Builder. ==========================*/
+
+        System.out.println(Yurii);
     }
 }
 
-
+//*************************THANK YOU FOR ATTENTION!**************************\\
