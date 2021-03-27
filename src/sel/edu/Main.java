@@ -7,6 +7,7 @@ import sel.edu.module2.design.Cube;
 import sel.edu.module2.design.MaritalStatus;
 import sel.edu.module2.design.Person0;
 import sel.edu.module2.design.Triangle;
+import sel.edu.module2.model.Student2;
 import sel.edu.module2.polymorphism.Rectangle2;
 import sel.edu.module2.polymorphism.interfaces.IGeometry;
 
@@ -95,19 +96,19 @@ public class Main {
         Person0 johnLennon = new Person0 ("John", "Hippie", "Lennon",
                 LocalDate.of(1955, Month.MARCH, 12), MaritalStatus.MARRIED);
 
-        System.out.println(johnLennon.getAge());
-        System.out.println(johnLennon.toString());
+        //System.out.println(johnLennon.getAge());
+        //System.out.println(johnLennon.toString());
         Rectangle2 rec2 = new Rectangle2(3,4);
         rec2.toJSON();
         rec2.toXML();
 
         Rectangle3 r22 = new Rectangle3(3,4);
-        System.out.println(r22.getArea());
-        System.out.println(Rectangle3.getArea(7, 8)); // не створюючи об`єкт класу
+        //System.out.println(r22.getArea());
+        //System.out.println(Rectangle3.getArea(7, 8)); // не створюючи об`єкт класу
         Rectangle3 r33 = RectangleFactory.create(3,4);
 
         Triangle t34 = TriangleFactory.create(1,1,10);
-        System.out.println(t34);
+        //System.out.println(t34);
 
         double PI = Math.PI;
         double x = Math.sqrt(2);
@@ -117,6 +118,33 @@ public class Main {
 
         List<IGeometry> list = new ArrayList<>();
         list.add(cube);
+
+        Student2 student = new Student2("Ivan", "Ivahovych", "Ivanko",
+                LocalDate.of(2000,1,1), true, "phone");
+
+        Student2 st2 = new Student2.Builder()
+                .setFirstName("Sergiy")
+                .setLastName("Condor")
+                .setPatronymic("Sergiovych")
+                .setBirth(LocalDate.of(2000,1,1))
+                .setGender(true)
+                .setPhone("1313666")
+                .build();
+
+        Student2 st3 = new Student2.Builder()
+                .setSimilarTo(st2)
+                .setFirstName("Igor")
+                .setPhone("12345")
+                .build();
+
+        Student2 st4 = st3;  // similar object to st3 - WRONG WAY
+        st4.setFirstName("Yaroslav");
+
+        System.out.println(st2);
+        System.out.println(st3);
+        System.out.println(st4);
+
+
 
     }
 }

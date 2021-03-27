@@ -1,5 +1,8 @@
 package sel.edu.module2.design;
 
+import sel.edu.module2.design.interfacesForClasses.IGeometry;
+import sel.edu.module2.design.interfacesForClasses.IPackings;
+
 import java.util.Objects;
 
 /**
@@ -21,7 +24,8 @@ Create a class from the attached document according to the order in your group
 4. Override toString() method
 5. Override hash() and equals() methods.*/
 
-public class Cylinder {
+/* implementing interfaces */
+public class Cylinder implements IGeometry, IPackings {
     private double h;
     private double r;
 
@@ -112,6 +116,39 @@ public class Cylinder {
     @Override
     public int hashCode() {
         return Objects.hash(h, r);
+    }
+
+
+
+    @Override
+    public String toJSON() { // I know that this block of code isn't nice, but
+                            // I have limit for 80 symbols in line
+        String json = "Cylinder" + "{" + "\"" + "diameter of base" + "\"" +
+                ": " + this.getDiameterOfBase() + "," + "\"" +
+                "length of base" + "\"" + ": " + this.getLengthOfBase() + "," +
+                "\"" + "side surface area" + "\"" + ":" +
+                this.getSideSurfaceArea() + "," + "\"" + "area of base" +
+                "\"" + ": " + this.getAreaOfBase() + "," + "\"" +
+                "total area" + "\"" + ": " + this.getTotalArea() + "," +
+                "\"" + "volume" + "\"" + ":" + this.getVolume() + "}";
+        return json;
+    }
+
+    @Override
+    public String toXML() {
+        String xml = "<Cylinder>" +
+                " + <diameter of base> " + this.getDiameterOfBase() +
+                "</diameter of base>" +
+                " + <length of base> " + this.getLengthOfBase() +
+                "</length of base>" +
+                " + <side surface area> " + this.getSideSurfaceArea() +
+                "</side surface area>" +
+                " + <area of base> " + this.getAreaOfBase() +
+                "</area of base>" +
+                " + <total area> " + this.getTotalArea() + "</total area>" +
+                " + <volume> " + this.getVolume() + "</volume>" +
+                "</Rectangle>";
+        return xml;
     }
 
     //*************************THANK YOU FOR ATTENTION!**************************\\
