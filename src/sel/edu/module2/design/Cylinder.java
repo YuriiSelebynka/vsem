@@ -24,6 +24,19 @@ Create a class from the attached document according to the order in your group
 4. Override toString() method
 5. Override hash() and equals() methods.*/
 
+/* Polymorphism.
+
+Create and implement  two interfaces for your class. */
+
+/* Programming patterns. Factory, Builder.
+
+Develop for your class:
+1. Factory;
+2. Abstract factory;
+3. Create a builder for the class Student;
+4. Create a class MyInteger.
+Design a method  public static boolean isPrime(int num). */
+
 /* implementing interfaces */
 public class Cylinder implements IGeometry, IPackings {
     private double h;

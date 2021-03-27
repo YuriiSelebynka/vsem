@@ -9,6 +9,7 @@ package sel.edu.module2.design.interfacesForClasses;
  **/
 
 /* Polymorphism.
+
 Create and implement  two interfaces for your class. */
 
 public interface IPackings { /* Creating the second interface */
