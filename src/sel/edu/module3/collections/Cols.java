@@ -7,7 +7,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
-import sel.edu.module3.collections.Student3;
+
 import sel.edu.module3.collections.interfaces.IAccounting;
 import sel.edu.module3.collections.model.CandyBox;
 import sel.edu.module3.collections.model.CandyWeighted;
@@ -72,7 +72,7 @@ public class Cols {
         int min = students.stream().mapToInt(Student3::getMark).min().getAsInt();
         //---------------------------------------------------------------------
 
-        //List<CandyBox, CandyWeighted> еак не можна робити
+        //List<CandyBox, CandyWeighted> так не можна робити
 
         List<IAccounting> list = new ArrayList<>(// використання інтерфейса
                 Arrays.asList(
