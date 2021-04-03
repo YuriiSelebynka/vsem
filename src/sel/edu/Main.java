@@ -10,13 +10,17 @@ import sel.edu.module2.design.Triangle;
 import sel.edu.module2.design.factories.AbstractFactory;
 import sel.edu.module2.design.factories.AbstractFigures;
 import sel.edu.module2.design.interfacesForClasses.IGeometry;
+import sel.edu.module2.model.Bachelor;
 import sel.edu.module2.model.Student2;
 import sel.edu.module2.polymorphism.Rectangle2;
 import sel.edu.module2.polymorphism.interfaces.IGeometry1;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.Month;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Main {
@@ -144,16 +148,16 @@ public class Main {
         Student2 st4 = st3;  // similar object to st3 - WRONG WAY
         st4.setFirstName("Yaroslav");
 
-        System.out.println(st2);
-        System.out.println(st3);
-        System.out.println(st4);
+        //System.out.println(st2);
+        //System.out.println(st3);
+       // System.out.println(st4);
 
 /*****************************************************************************/
 
 /*====================== Checking an abstract factory. ======================*/
 
         IGeometry cone = AbstractFactory.create(4,4,AbstractFigures.CONE);
-        System.out.println(cone);
+        //System.out.println(cone);
 
 /*=================== Creating an object with helping Builder. ==============*/
 
@@ -199,7 +203,64 @@ public class Main {
 
 /*========================== Checking the Builder. ==========================*/
 
-        System.out.println(Yurii);
+        //System.out.println(Yurii);
+
+        /*start = LocalDateTime.now();
+
+        for (int i = 0; i < 100000; i++) {
+            linkedList.set(i, 100);
+
+        }
+        finish = localDateTime.now();
+
+        duration = (int) ChronoUnit.MILLIS.between(start, finish);
+
+        System.out.println("LinkedList update HEAD " + duration);*/
+
+        // add() - створити (create)
+        // get() - read
+        // set() - update
+        // remove() - delete
+        // insert add() TO
+
+
+        List<Integer> list1 = new ArrayList<>(Arrays.asList(1,2,3,4,5,6,7,8,9,10));
+
+        // create
+        list1.add(11);
+        list1.add(12);
+        System.out.println(list1);
+
+        // insert to HEAD (BEGINNING)
+        list1.add(0,13);
+        list1.add(0,14);
+        System.out.println(list1);
+
+        // insert INTO THE MIDDLE
+        list1.add(7,100);
+        list1.add(7,100);
+        System.out.println(list1);
+
+        // insert TO THE END
+        // не поставити на останнє місце!!! став на передостаннє приблизно
+        list1.add(13,99);
+        list1.add(13,99);
+        // list.add(14, 99) == list.add(99);
+        System.out.println(list1);
+        System.out.println(list1.size());
+
+        for (int i = 0; i < 5; i++) {
+            list1.add(9,555);
+
+        }
+        System.out.println(list1);
+
+        // cohesion композиція
+
+        Person0 p0 = new Person0();
+        Bachelor b1 = new Bachelor(p0, "John", "Lork", "Marde",
+                LocalDate.of(1983, 3,1), true, "12223");
+
     }
 }
 

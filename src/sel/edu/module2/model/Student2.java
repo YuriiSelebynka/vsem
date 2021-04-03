@@ -2,6 +2,7 @@ package sel.edu.module2.model;
 
 import java.time.LocalDate;
 
+// POJO class
 public class Student2 extends Person1 {
     private String firstName;
     private String lastName;
