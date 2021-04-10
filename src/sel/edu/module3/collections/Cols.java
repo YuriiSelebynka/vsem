@@ -98,6 +98,31 @@ public class Cols {
         // 4th task
         double cheap      = list.stream().mapToDouble(IAccounting::getUltimatePrice).min().getAsDouble();
 
+        IAccounting element = list.stream().filter(item -> item.getUltimatePrice() == expensive)
+                .findFirst().orElse(null);
+
+        System.out.println(element);
+        System.out.println("-----------------------------------------");
+
+        double totalSumBoxed = list.stream()
+                .filter(el -> el instanceof CandyBox)
+                .mapToDouble(IAccounting::getUltimatePrice).sum();
+
+        double totalSumWeighed = list.stream()
+                .filter(el -> el instanceof CandyWeighted)
+                .mapToDouble(IAccounting::getUltimatePrice).sum();
+
+        if (totalSumBoxed > totalSumWeighed) {
+            System.out.println("Boxed.");
+        } else {
+            System.out.println("Weighed.");
+        }
+
+        boolean hasPool = true;
+        int totalSum = 0;
+
+        totalSum = totalSum + ((hasPool) ? 100 : 0); // instead of 'IF'
+
 
     }
 }

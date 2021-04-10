@@ -11,10 +11,15 @@ import sel.edu.module2.design.factories.AbstractFactory;
 import sel.edu.module2.design.factories.AbstractFigures;
 import sel.edu.module2.design.interfacesForClasses.IGeometry;
 import sel.edu.module2.model.Bachelor;
+import sel.edu.module2.model.Patient;
+import sel.edu.module2.model.Person1;
 import sel.edu.module2.model.Student2;
 import sel.edu.module2.polymorphism.Rectangle2;
 import sel.edu.module2.polymorphism.interfaces.IGeometry1;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.Month;
@@ -25,7 +30,7 @@ import java.util.List;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 	// write your code here
         System.out.println("Hello, world!");
 
@@ -260,6 +265,18 @@ public class Main {
         Person0 p0 = new Person0();
         Bachelor b1 = new Bachelor(p0, "John", "Lork", "Marde",
                 LocalDate.of(1983, 3,1), true, "12223");
+
+        // Agregation person can live independently from patient
+
+        Person1 p1 = new Person1("76575");
+        //Patient pt1 = new Patient(p1, "Angina", null);
+
+        // Composition - can not exist without parent
+        //Patient pt2 = new Patient(new Person1("35676"), "Golova bolit", null);
+        //pt2 = null;
+
+        // person
+        String logs = new String(Files.readAllBytes(Paths.get("/home/yurii/Desktop/logs.txt")));
 
     }
 }
