@@ -39,7 +39,7 @@ public class FilesManagement {
 
         String logs = new String
                 (Files.readAllBytes(Paths
-                        .get("/home/yurii/IdeaProjects/logs4.txt")));
+                        .get("/home/yurii/IdeaProjects/logs.txt")));
 
         final String[] lines = logs.split("\n");
 
@@ -81,8 +81,8 @@ public class FilesManagement {
                 "with Files.lines method:");
 
         System.out.println("3.1. The total number of ERRORS logs is " +
-                Files.lines(Paths.get("/home/yurii/IdeaProjects/logs4.txt"))
-                .filter(line -> line.contains("ERROR")).count());
+                Files.lines(Paths.get("/home/yurii/IdeaProjects/logs.txt"))
+                .filter(line -> line.contains("ERROR")).count() + ".");
 
         LocalDateTime finishForFilesLinesMethod = LocalDateTime.now();
 
@@ -106,15 +106,15 @@ public class FilesManagement {
 
         /* ==== HOME TASK. FILE MANAGEMENT. ====
 
-1. The total number of logs (lines) is 197.
+1. The total number of logs (lines) is 2845607.
 
 2. Calculating of total number of ERRORS logs with String.split method:
-2.1 The total number of ERRORS logs is 1.
-2.2. Calculating of total number of ERRORS logs with String.split method takes 13 ms.
+2.1 The total number of ERRORS logs is 361.
+2.2. Calculating of total number of ERRORS logs with String.split method takes 3301 ms.
 
 3. Calculating of total number of ERRORS logs with Files.lines method:
-3.1. The total number of ERRORS logs is 1
-3.2. Calculating of total number of ERRORS logs with Files.lines method takes 9 ms.
+3.1. The total number of ERRORS logs is 361.
+3.2. Calculating of total number of ERRORS logs with Files.lines method takes 692 ms.
 
 4. Method Files.lines is quicker. */
 
