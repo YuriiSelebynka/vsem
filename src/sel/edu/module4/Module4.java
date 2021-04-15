@@ -21,7 +21,7 @@ public class Module4 {
 
 
 
-        String logs = new String
+        /*String logs = new String
                 (Files.readAllBytes(Paths
                 //.get("logs.txt")));
                 .get("/home/yurii/IdeaProjects/logs4.txt")));
@@ -33,7 +33,7 @@ public class Module4 {
         for (int i = 0; i < lines.length; i++) {
             if(lines[i].contains("ERROR")) counter++;
         }
-        System.out.println("ERRORS" + counter);
+        System.out.println("ERRORS" + counter);*/
 
         LocalDateTime finish = LocalDateTime.now();
 
@@ -67,25 +67,69 @@ public class Module4 {
 
         System.out.println("----------- Threads ----------------------------");
 
-        System.out.println(LogsService
+        /* System.out.println(LogsService
                 .logsByDate("/home/yurii/IdeaProjects/logs.txt",
                         LocalDate.of(2020, Month.FEBRUARY, 14))
-                .size());
+                .size()); */
 
-        //LocalDateTime
-                start = LocalDateTime.now();
 
-        System.out.println(LogsService
+
+        /* System.out.println(LogsService
                 .logsByDate
                         ("/home/yurii/IdeaProjects/logs.txt", LocalDate
                         .of(2020, Month.FEBRUARY, 11)).size());
         LogsService.logsByDateToFile("/home/yurii/IdeaProjects/logs.txt", LocalDate
-                .of(2020, Month.FEBRUARY, 11));
+                .of(2020, Month.FEBRUARY, 11)); */
+
+        //LocalDateTime
+        start = LocalDateTime.now();
+
+        /* // 4. task multithreading
+
+        LocalDate date = LocalDate.of(2020,Month.FEBRUARY,14);
+
+        for (int i = 0; i < 5; i++) {
+            LogsService.logsByDateToFile("/home/yurii/IdeaProjects/logs.txt",
+                    date.plusDays(i));
+
+        }
+
+
 
         //LocalDateTime
                 finish = LocalDateTime.now();
 
-        System.out.println(ChronoUnit.MILLIS.between(start, finish));
+        System.out.println(ChronoUnit.MILLIS.between(start, finish)); */
+
+        /* for (int i = 0; i < 10; i++) {
+            new MyThread().start();
+        } */
+
+        start = LocalDateTime.now();
+
+        LocalDate date = LocalDate.of(2020,Month.FEBRUARY,10);
+
+        for (int i = 0; i < 5; i++) {
+            //System.out.print(date.plusDays(i) + " - ");
+            LogsService.getLogsCountByDate(date.plusDays(i));
+        }
+
+
+
+        //LocalDateTime
+        finish = LocalDateTime.now();
+
+
+
+
+        System.out.println(ChronoUnit.MILLIS.between(start, finish) + " msec");
+        System.out.println("----- threads ------");
+        start = LocalDateTime.now();
+        for (int i = 0; i < 5; i++) {
+            new MyThread(date.plusDays(i)).start();
+        }
+
+
 
     }
 }
