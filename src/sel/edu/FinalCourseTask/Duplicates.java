@@ -1,7 +1,9 @@
 package sel.edu.FinalCourseTask;
 
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 /**
@@ -15,12 +17,14 @@ import java.util.stream.Collectors;
 public class Duplicates {
     public  static  boolean hasDuplicates(int[] array){
         Arrays.sort(array);
-        List<Integer> list = Arrays.stream(array).boxed()
-                .distinct().collect(Collectors.toList());
-        int[] arr2 = new int[list.size()];
-        for (int i = 0; i < arr2.length; i++) {
-            arr2[i] = (int) list.get(i);
+
+        Set<Integer> set = new HashSet<>(array.length);
+
+        for (int a : array) {
+            if (!set.add(a))
+                return true;
         }
+
         return  false;
     }
 
